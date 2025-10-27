@@ -1,0 +1,49 @@
+{
+  "name": "sval",
+  "version": "0.6.7",
+  "description": "A javascript interpreter written in javascript",
+  "type": "module",
+  "main": "dist/sval.min.js",
+  "unpkg": "dist/sval.min.js",
+  "module": "dist/sval.js",
+  "types": "dist/src/index.d.ts",
+  "exports": {
+    "types": "./dist/src/index.d.ts",
+    "import": "./dist/sval.js",
+    "require": "./dist/sval.umd.cjs"
+  },
+  "scripts": {
+    "start": "vite",
+    "test": "node scripts && vitest run --coverage",
+    "build": "npm test && vite build && node scripts/legacy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Siubaak/sval.git"
+  },
+  "keywords": [
+    "sval",
+    "js",
+    "javascript",
+    "eval",
+    "interpreter"
+  ],
+  "author": "baakqiu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Siubaak/sval/issues"
+  },
+  "homepage": "https://github.com/Siubaak/sval#readme",
+  "dependencies": {
+    "acorn": "^8.14.0"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.11.24",
+    "@types/node": "^22.15.3",
+    "@vitest/coverage-v8": "^3.1.2",
+    "happy-dom": "^17.4.6",
+    "vite": "^6.3.4",
+    "vite-plugin-dts": "^4.5.3",
+    "vitest": "^3.1.2"
+  }
+}
