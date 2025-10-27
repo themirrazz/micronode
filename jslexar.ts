@@ -97,6 +97,11 @@ namespace jsutils {
                     indbq = false;
                     insgq = false;
                     inmq = false;
+                    d.tokens.push({
+                        type: 'TEXT',
+                        data: tok
+                    });
+                    tok = '';
                     tokens.push(d);
                     d = null;
                 } else if (inmq && js[i] === '$' && js[i + 1] === '{') {
@@ -158,6 +163,8 @@ namespace jsutils {
                 };
             } else if (allowed.indexOf(js[i]) >= 0) {
                 tok += js[i];
+            } else if(js[i] === '\r' || js[i] === '\t' || js[i] === '\n' || js[i] === ' ') {
+                pushTok();
             } else {
                 pushTok();
                 tokens.push({
